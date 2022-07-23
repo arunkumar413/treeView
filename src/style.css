@@ -1,0 +1,31 @@
+body {
+  font-family: sans-serif;
+}
+
+.dir {
+  font-weight: bold;
+  color: black;
+  margin-left: 5px;
+  padding: 5px;
+  line-height: 16px;
+  border-left: solid 0.5px gray;
+}
+
+.file {
+  font-size: 1rem;
+
+  font-weight: normal;
+}
+
+.icon {
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.bi-folder-fill {
+  color: blue;
+}
+
+/* .dir>span {
+  display: none;
+} */
