@@ -3,7 +3,7 @@ body {
 }
 
 .dir {
-  font-weight: bold;
+  /* font-weight: bold; */
   color: black;
   margin-left: 5px;
   padding: 5px;
@@ -11,10 +11,29 @@ body {
   border-left: solid 0.5px gray;
 }
 
+.dir-heading {
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+.dir-heading:hover {
+  background-color: lightgrey;
+}
+
+.icon-container {
+  display: none;
+}
+
 .file {
   font-size: 1rem;
+  padding: 0.3rem;
+  border-radius: 5px;
 
   font-weight: normal;
+}
+
+.file:hover {
+  background-color: lightgrey;
 }
 
 .icon {
