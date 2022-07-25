@@ -17,7 +17,7 @@ body {
 }
 
 .dir-heading:hover {
-  background-color: lightgrey;
+
 }
 
 .icon-container {
@@ -37,7 +37,8 @@ body {
 }
 
 .icon {
-  padding: 5px;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
   vertical-align: middle;
 }
 
