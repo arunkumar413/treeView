@@ -17,7 +17,6 @@ body {
 }
 
 .dir-heading:hover {
-
 }
 
 .icon-container {
@@ -49,3 +48,7 @@ body {
 /* .dir>span {
   display: none;
 } */
+
+.file-icon-container {
+  display: none;
+}
