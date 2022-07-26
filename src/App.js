@@ -53,16 +53,16 @@ export default function App() {
     switch (visibility) {
       case "none":
         chidlren.style.display = "block";
-        evt.target.innerText = " v ";
+        evt.target.innerText = " - ";
         break;
       case "block":
         chidlren.style.display = "none";
-        evt.target.innerText = " > ";
+        evt.target.innerText = " + ";
 
         break;
       case "":
         chidlren.style.display = "none";
-        evt.target.innerText = " v ";
+        evt.target.innerText = " + ";
 
         break;
       default:
@@ -74,18 +74,21 @@ export default function App() {
 
   function handleDirHover(evt, node) {
     if (evt.target == evt.currentTarget) {
-      console.log(evt.target.children[0].lastChild.style.display='inline');
+      evt.target.children[1].style.display = "inline";
     }
-
-    // evt.preventDefault();
-    // evt.stopPropagation();
-    // debugger;
   }
 
-  function handleDirMouseOut(evt, node) {
-    if (evt.target == evt.currentTarget) {
-      console.log(evt.target.children[0].lastChild.style.display='none');
+  function handleKeydown(evt) {
+    if (evt.key === "Escape") {
+      console.log("press escape");
     }
+  }
+
+  function hideIconContainer(evt) {
+    let containers = document.querySelectorAll(".icon-container");
+    containers.forEach(function (item) {
+      item.style.display = "none";
+    });
   }
 
   function buildTree(node, level = 1) {
@@ -97,21 +100,15 @@ export default function App() {
         <div
           id={node.id}
           key={node.id}
-          // onMouseEnter={(evt) => handleShowIcons(evt, id)}
-          // onMouseLeave={(evt) => hideIcons(evt, id)}
-          onMouseOver={(evt) => handleDirHover(evt, node)}
-          onMouseOut={(evt) => handleDirMouseOut(evt, node)}
           style={{ paddingLeft: level * 10 }}
           className="dir">
-          {/* <FolderNormalIcon /> */}
           <span
-            // onMouseOver={(evt) => handleDirHover(evt, node)}
-            // onMouseOut={(evt) => handleDirMouseOut(evt, node)}
+            onMouseOver={(evt) => handleDirHover(evt, node)}
+            onMouseLeave={(evt) => hideIconContainer(evt, node)}
             className="dir-heading">
-            <span onClick={(evt) => expandNode(evt, node)}> {">"} </span>
+            <span onClick={(evt) => expandNode(evt, node)}> {"-"} </span>
             {node.name}
             <span className="icon-container">
-              {/* <FolderIcon onClick={addNewDir} /> */}
               <svg
                 // onClick={(evt) => insertNodeIntoTree(tree, node.id, node.type)}
                 onClick={(evt) => insertNewNode(node.id, node.type)}
@@ -143,5 +140,5 @@ export default function App() {
     }
   }
 
-  return <div>{buildTree(tree)}</div>;
+  return <div className="tree-container">{buildTree(tree)}</div>;
 }
