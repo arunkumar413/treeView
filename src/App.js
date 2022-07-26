@@ -21,12 +21,10 @@ export default function App() {
   }
 
   function addNewDir(evt, id) {
-    debugger;
     console.log(id);
   }
 
   function insertNewNode(id, type) {
-    debugger;
     function recursion(node) {
       console.log(node.name, "--", node.id, "--", node.type);
       if (node.id === id && node.type === "dir") {
@@ -45,7 +43,6 @@ export default function App() {
   }
 
   function expandNode(evt, node) {
-    debugger;
     console.log(evt.target.children);
     var visibility = evt.target.parentElement.nextElementSibling.style.display;
     var chidlren = evt.target.parentElement.nextElementSibling;
@@ -68,8 +65,6 @@ export default function App() {
       default:
         break;
     }
-
-    debugger;
   }
 
   function handleDirHover(evt, node) {
@@ -106,7 +101,7 @@ export default function App() {
             onMouseOver={(evt) => handleDirHover(evt, node)}
             onMouseLeave={(evt) => hideIconContainer(evt, node)}
             className="dir-heading">
-            <span onClick={(evt) => expandNode(evt, node)}> {"-"} </span>
+            <span onClick={(evt) => expandNode(evt, node)}>{"+"}</span>
             {node.name}
             <span className="icon-container">
               <svg

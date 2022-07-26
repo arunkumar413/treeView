@@ -13,6 +13,7 @@ body {
 .dir-heading {
   padding: 0.3rem;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .dir-heading:hover {
